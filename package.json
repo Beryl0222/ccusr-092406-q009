@@ -6,6 +6,6 @@
   "description": "技能研学资源编排领域资料",
   "scripts": {
     "test": "node --test",
-    "build": "node --check src/skill_museum_learning.js"
+    "build": "for f in src/*.js; do node --check \"$f\" || exit 1; done"
   }
 }

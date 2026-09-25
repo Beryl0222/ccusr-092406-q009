@@ -1,0 +1,180 @@
+[
+  {
+    "event_id": "sample-stream-001",
+    "kind": "GROUP_REQUESTED",
+    "occurred_at": "2026-09-20T09:00:00+08:00",
+    "subject_id": "grp-012",
+    "payload": {
+      "group_id": "grp-012",
+      "school": "示例职业学校（虚构）",
+      "headcount": 24,
+      "goals": ["陶艺拉坯", "木作榫卯"],
+      "time_window": { "start": "2026-10-12T08:30:00+08:00", "end": "2026-10-12T16:00:00+08:00" },
+      "transport": { "earliest_start": "2026-10-12T09:00:00+08:00", "latest_end": "2026-10-12T15:30:00+08:00" },
+      "support_needs": ["wheelchair"],
+      "revision": 1
+    }
+  },
+  {
+    "event_id": "sample-stream-002",
+    "kind": "STATION_CAPACITY_SET",
+    "occurred_at": "2026-09-20T09:05:00+08:00",
+    "subject_id": "st-tao",
+    "payload": {
+      "station_id": "st-tao",
+      "venue_id": "museum-tao",
+      "skills": ["陶艺拉坯"],
+      "mentor_skills": ["陶艺拉坯"],
+      "support_features": ["wheelchair"],
+      "slots": [
+        { "slot_id": "st-tao-am", "start": "2026-10-12T09:30:00+08:00", "end": "2026-10-12T11:00:00+08:00", "capacity": 30 }
+      ],
+      "closed_slots": []
+    }
+  },
+  {
+    "event_id": "sample-stream-003",
+    "kind": "STATION_CAPACITY_SET",
+    "occurred_at": "2026-09-20T09:06:00+08:00",
+    "subject_id": "st-mu",
+    "payload": {
+      "station_id": "st-mu",
+      "venue_id": "museum-mu",
+      "skills": ["木作榫卯"],
+      "mentor_skills": ["木作榫卯"],
+      "support_features": ["wheelchair"],
+      "slots": [
+        { "slot_id": "st-mu-pm", "start": "2026-10-12T13:00:00+08:00", "end": "2026-10-12T14:30:00+08:00", "capacity": 30 }
+      ],
+      "closed_slots": []
+    }
+  },
+  {
+    "event_id": "sample-stream-004",
+    "kind": "PLAN_SUGGESTED",
+    "occurred_at": "2026-09-20T09:10:00+08:00",
+    "subject_id": "grp-012",
+    "payload": {
+      "plan_id": "P-grp-012-1",
+      "group_id": "grp-012",
+      "nodes": [
+        {
+          "node_id": "P-grp-012-1-n1",
+          "station_id": "st-tao",
+          "slot_id": "st-tao-am",
+          "start": "2026-10-12T09:30:00+08:00",
+          "end": "2026-10-12T11:00:00+08:00",
+          "goals": ["陶艺拉坯"],
+          "status": "AVAILABLE"
+        },
+        {
+          "node_id": "P-grp-012-1-n2",
+          "station_id": "st-mu",
+          "slot_id": "st-mu-pm",
+          "start": "2026-10-12T13:00:00+08:00",
+          "end": "2026-10-12T14:30:00+08:00",
+          "goals": ["木作榫卯"],
+          "status": "AVAILABLE"
+        }
+      ],
+      "unmet_goals": [],
+      "rationale": {
+        "nodes": [
+          { "station_id": "st-tao", "slot_id": "st-tao-am", "covered_goals": ["陶艺拉坯"], "headcount": 24, "remaining_capacity_before": 30, "remaining_capacity_after": 6 },
+          { "station_id": "st-mu", "slot_id": "st-mu-pm", "covered_goals": ["木作榫卯"], "headcount": 24, "remaining_capacity_before": 30, "remaining_capacity_after": 6 }
+        ],
+        "waitlist": [],
+        "unmet": []
+      }
+    }
+  },
+  {
+    "event_id": "sample-stream-005",
+    "kind": "ITINERARY_HELD",
+    "occurred_at": "2026-09-20T09:20:00+08:00",
+    "subject_id": "grp-012",
+    "payload": {
+      "plan_id": "P-grp-012-1",
+      "group_id": "grp-012",
+      "version": 1,
+      "nodes": [
+        {
+          "node_id": "P-grp-012-1-n1",
+          "station_id": "st-tao",
+          "slot_id": "st-tao-am",
+          "start": "2026-10-12T09:30:00+08:00",
+          "end": "2026-10-12T11:00:00+08:00",
+          "goals": ["陶艺拉坯"],
+          "status": "HELD"
+        },
+        {
+          "node_id": "P-grp-012-1-n2",
+          "station_id": "st-mu",
+          "slot_id": "st-mu-pm",
+          "start": "2026-10-12T13:00:00+08:00",
+          "end": "2026-10-12T14:30:00+08:00",
+          "goals": ["木作榫卯"],
+          "status": "HELD"
+        }
+      ],
+      "hold_until": "2026-09-25T18:00:00+08:00",
+      "supersedes": null
+    }
+  },
+  {
+    "event_id": "sample-stream-006",
+    "kind": "PLAN_FINALIZED",
+    "occurred_at": "2026-09-22T10:00:00+08:00",
+    "subject_id": "grp-012",
+    "payload": { "plan_id": "P-grp-012-1", "group_id": "grp-012" }
+  },
+  {
+    "event_id": "sample-stream-007",
+    "kind": "CHECK_IN_RECORDED",
+    "occurred_at": "2026-10-12T09:35:00+08:00",
+    "subject_id": "grp-012",
+    "payload": {
+      "checkin_id": "ck-001",
+      "group_id": "grp-012",
+      "station_id": "st-tao",
+      "slot_id": "st-tao-am",
+      "checked_at": "2026-10-12T09:34:00+08:00",
+      "source": "OFFLINE_SYNC",
+      "headcount": 24
+    }
+  },
+  {
+    "event_id": "sample-stream-008",
+    "kind": "CHECK_IN_RECORDED",
+    "occurred_at": "2026-10-12T13:06:00+08:00",
+    "subject_id": "grp-012",
+    "payload": {
+      "checkin_id": "ck-002",
+      "group_id": "grp-012",
+      "station_id": "st-mu",
+      "slot_id": "st-mu-pm",
+      "checked_at": "2026-10-12T13:05:00+08:00",
+      "source": "OFFLINE_SYNC",
+      "headcount": 23
+    }
+  },
+  {
+    "event_id": "sample-stream-009",
+    "kind": "VISIT_RECONCILED",
+    "occurred_at": "2026-10-12T18:00:00+08:00",
+    "subject_id": "grp-012",
+    "payload": {
+      "group_id": "grp-012",
+      "plan_id": "P-grp-012-1",
+      "goal_coverage": [
+        { "goal": "陶艺拉坯", "status": "COVERED", "evidence": { "node_id": "P-grp-012-1-n1", "station_id": "st-tao", "slot_id": "st-tao-am", "checkin_id": "ck-001" } },
+        { "goal": "木作榫卯", "status": "COVERED", "evidence": { "node_id": "P-grp-012-1-n2", "station_id": "st-mu", "slot_id": "st-mu-pm", "checkin_id": "ck-002" } }
+      ],
+      "absences": [],
+      "substitutions": [],
+      "unplanned_visits": [],
+      "duplicate_checkins": [],
+      "summary": { "goals_covered": 2, "goals_missed": 0, "nodes_visited": 2, "nodes_absent": 0 }
+    }
+  }
+]
